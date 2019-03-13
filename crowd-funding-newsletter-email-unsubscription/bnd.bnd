@@ -1,0 +1,4 @@
+Bundle-Name: crowd-funding-newsletter-email-unsubscription
+Bundle-SymbolicName: crowd.funding.newsletter.email
+Bundle-Version: 1.0.0
+Export-Package: crowd.funding.newsletter.email.constants
