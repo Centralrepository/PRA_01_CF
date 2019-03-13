@@ -1,0 +1,12 @@
+dependencies {
+	compileOnly group: "biz.aQute.bnd", name: "biz.aQute.bndlib"
+	compileOnly group: "com.liferay", name: "com.liferay.portal.spring.extender.api"
+	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel"
+	compileOnly project(":modules:crowd-funding-database:crowd-funding-database-api")
+}
+
+buildService {
+	apiDir = "../crowd-funding-database-api/src/main/java"
+}
+
+group = "com.crowd.funding.database"

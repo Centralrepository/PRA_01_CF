@@ -1,0 +1,507 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="com.crowd.funding.database">
+	<namespace>CrowdFunding</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	
+									<!-- USER REGISTRATION -->
+	
+	<entity name="UserRegistration" remote-service="true" local-service="true" table="cf_user_master" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="USER_ID" primary="true" type="long" />
+		<column name="USER_OTP_ID" type="long" />
+		<column name="FULL_NAME" type="String" />
+		<column name="PASSWORD" type="String" />
+		<column name="GENDER" type="String" />
+		<column name="CREATION_DATE" type="Date" />
+
+		<!-- Finder methods -->
+
+		<finder name="USER_ID" return-type="UserRegistration">
+			<finder-column name="USER_ID" />
+		</finder>
+	</entity>
+	
+	<entity name="UserOTPRegistration" remote-service="true" local-service="true" table="cf_user_otp_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="USER_OTP_ID" primary="true" type="long" />
+		<column name="MOBILE_NO" type="long" />
+		<column name="MAIL_ADDRESS" type="String" />
+		<column name="OTP" type="int" />
+		<column name="MAIL_VERIFICATION" type="int" />
+		<column name="SMS_VERIFICATION" type="int" />
+		<column name="CREATION_DATE_TIME" type="Date" />
+
+		<!-- Finder methods -->
+
+		<finder name="MOBILE_NO" return-type="UserOTPRegistration">
+			<finder-column name="MOBILE_NO" />
+		</finder>
+		<finder name="USER_OTP_ID" return-type="UserOTPRegistration">
+			<finder-column name="USER_OTP_ID" />
+		</finder>
+	</entity> 
+	
+	
+	<!-- PROJECT REGISTRATION -->
+							
+	<entity name="BenificiaryRegistration" remote-service="true" local-service="true" table="cf_project_benificiary_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="BENIFICIARY_ID" primary="true" type="long" />
+		<column name="BENIFICIARY_CATEGORY" type="String" />
+		<column name="BENIFICIARY_TYPE" type="String" />
+		<column name="BENIFICIARY_NAME" type="String" />
+		<column name="AGE" type="int" />
+		<column name="GENDER" type="String" />
+		<column name="LOCATION" type="String" />
+		<column name="RELATIONSHIP" type="String" />
+		<column name="RELATIONSHIP_DETAILS" type="String" />
+		<column name="MEMBERS_NO" type="int" />
+		<column name="CAUSE_DETAILS" type="String" />
+		<column name="ADDRESS_LINE1" type="String" />
+		<column name="ADDRESS_LINE2" type="String" />
+		<column name="CITY" type="String" />
+		<column name="STATE" type="String" />
+		<column name="PINCODE" type="int" />
+		<column name="COUNTRY" type="String" />
+		<column name="CONTACT_NAME" type="String" />
+		<column name="CONTACT_NO" type="long" />
+		<column name="ALTERNATE_CONTACT_NO" type="long" />
+		<column name="EMERGENCY_CONTACT_DETAILS" type="String" />
+		<column name="IMAGE_TYPE" type="String" />
+		<column name="IMAGE" type="Blob" />
+		
+
+		<!-- Finder methods -->
+		<finder name="BENIFICIARY_ID" return-type="BenificiaryRegistration">
+			<finder-column name="BENIFICIARY_ID" />
+		</finder>
+	</entity>
+
+	
+									<!-- PROJECT REGISTRATION -->
+	
+	<entity name="ProjectRegistration" remote-service="true" local-service="true" table="cf_project_master" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="PROJECT_ID" primary="true" type="long" />
+		<column name="USER_ID" type="long" />
+		<column name="BENIFICIARY_ID" type="long" />
+		<column name="TITLE" type="String" />
+		<column name="DESCRIPTION" type="String" />
+		<column name="REQUIRED_FUND_AMOUNT" type="float" />
+		<column name="CREATION_DATE" type="Date" />
+		<column name="END_DATE" type="Date" />
+		<column name="STATUS" type="int" />
+
+		<!-- Finder methods -->
+
+		<finder name="PROJECT_ID" return-type="ProjectRegistration">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+		<finder name="USER_ID" return-type="Collection">
+			<finder-column name="USER_ID" />
+		</finder>
+		<finder name="STATUS" return-type="Collection">
+			<finder-column name="STATUS" />
+		</finder>
+	</entity>
+	
+	<entity name="ProjectPriorityRegistration" remote-service="true" local-service="true" table="cf_project_priority_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="PROJECT_PRIORITY_ID" primary="true" type="long" />
+		<column name="PROJECT_ID" type="long" />
+		<column name="PRIORITY" type="int" />
+		<column name="PRIORITY_SEQUANCE" type="int" />
+
+		<!-- Finder methods -->
+
+		<finder name="PROJECT_ID" return-type="ProjectPriorityRegistration">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+		<finder name="PRIORITY" return-type="Collection">
+			<finder-column name="PRIORITY" />
+		</finder>
+		<finder name="PRIORITY_SEQUANCE" return-type="ProjectPriorityRegistration">
+			<finder-column name="PRIORITY_SEQUANCE" />
+		</finder>
+	</entity>
+	
+	<entity name="ImageRegistration" remote-service="true" local-service="true" table="cf_project_image_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="PROJECT_IMAGE_ID" primary="true" type="long" />
+		<column name="PROJECT_ID" type="long" />
+		<column name="IMAGE_NAME" type="String" />
+		<column name="IMAGE_TYPE" type="String" />
+		<column name="IMAGE" type="Blob" />
+
+		<!-- Finder methods -->
+
+		<finder name="PROJECT_IMAGE_ID" return-type="ImageRegistration">
+			<finder-column name="PROJECT_IMAGE_ID" />
+		</finder>
+		<finder name="PROJECT_ID" return-type="Collection">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+	</entity>
+	
+	<entity name="DocumentRegistration" remote-service="true" local-service="true" table="cf_project_document_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="PROJECT_DOCUMENT_ID" primary="true" type="long" />
+		<column name="PROJECT_ID" type="long" />
+		<column name="DOCUMENT_NAME" type="String" />
+		<column name="DOCUMENT_TYPE" type="String" />
+		<column name="DOCUMENT" type="Blob" />
+
+		<!-- Finder methods -->
+
+		<finder name="PROJECT_DOCUMENT_ID" return-type="DocumentRegistration">
+			<finder-column name="PROJECT_DOCUMENT_ID" />
+		</finder>
+		<finder name="PROJECT_ID" return-type="Collection">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+	</entity>
+	
+	<entity name="FundRegistration" remote-service="true" local-service="true" table="cf_project_fund_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="PROJECT_FUND_ID" primary="true" type="long" />
+		<column name="DONOR_ID" type="long" />
+		<column name="PROJECT_ID" type="long" />
+		<column name="CURRENCY" type="String" />
+		<column name="DONATED_AMOUNT" type="float" />
+		<column name="DONOR_USER_ID" type="long" />
+		<column name="DONOR_STATUS" type="int" />
+		<column name="COMMENT" type="String" />
+		<column name="DONATED_DATE" type="Date" />
+
+		<!-- Finder methods -->
+
+		<finder name="PROJECT_FUND_ID" return-type="FundRegistration">
+			<finder-column name="PROJECT_FUND_ID" />
+		</finder>
+		<finder name="PROJECT_ID" return-type="Collection">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+		<finder name="DONOR_USER_ID" return-type="Collection">
+			<finder-column name="DONOR_USER_ID" />
+		</finder>
+		<finder name="PROJECT_DONOR_USER_ID" return-type="Collection">
+			<finder-column name="PROJECT_ID" />
+			<finder-column name="DONOR_USER_ID" />
+		</finder>
+	</entity>
+	
+	<entity name="DonorRegistration" remote-service="true" local-service="true" table="cf_donor_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="DONOR_ID" primary="true" type="long" />
+		<column name="NAME" type="String" />
+		<column name="ADDRESS" type="String" />
+		<column name="CITY" type="String" />
+		<column name="STATE" type="String" />
+		<column name="COUNTRY" type="String" />
+		<column name="PINCODE" type="String" />
+		<column name="MAIL_ADDRESS" type="String" />
+		<column name="MOBILE_NO" type="long" />
+		<column name="OTP" type="int" />
+		<column name="MAIL_VERIFICATION" type="int" />
+		<column name="SMS_VERIFICATION" type="int" />
+		<column name="CREATION_DATE_TIME" type="Date" />
+
+		<!-- Finder methods -->
+
+		<finder name="MOBILE_NO" return-type="DonorRegistration">
+			<finder-column name="MOBILE_NO" />
+		</finder>
+		<finder name="DONOR_ID" return-type="DonorRegistration">
+			<finder-column name="DONOR_ID" />
+		</finder>
+	</entity>
+	
+	
+	<entity name="CommentRegistration" remote-service="true" local-service="true" table="cf_project_comment_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="PROJECT_COMMENT_ID" primary="true" type="long" />
+		<column name="PROJECT_ID" type="long" />
+		<column name="COMMENT" type="String" />
+		<column name="ANSWER" type="String" />
+		<column name="DONOR_USER_ID" type="long" />
+		<column name="COMMENT_DATE" type="Date" />
+		<column name="STATUS" type="int" />
+
+		<!-- Finder methods -->
+
+		<finder name="PROJECT_COMMENT_ID" return-type="CommentRegistration">
+			<finder-column name="PROJECT_COMMENT_ID" />
+		</finder>
+		<finder name="PROJECT_ID" return-type="Collection">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+		<finder name="STATUS" return-type="Collection">
+			<finder-column name="STATUS" />
+		</finder>
+		<finder name="PROJECT_ID_STATUS" return-type="Collection">
+			<finder-column name="PROJECT_ID" />
+			<finder-column name="STATUS" />
+		</finder>
+	</entity>
+	
+	<entity name="FundReleaseRegistration" remote-service="true" local-service="true" table="cf_fund_release_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="FUND_RELEASE_ID" primary="true" type="long" />
+		<column name="PROJECT_ID" type="long" />
+		<column name="CURRENCY" type="String" />
+		<column name="AMOUNT" type="float" />
+		<column name="RELEASE_DATE" type="Date" />
+
+		<!-- Finder methods -->
+
+		<finder name="FUND_RELEASE_ID" return-type="FundReleaseRegistration">
+			<finder-column name="FUND_RELEASE_ID" />
+		</finder>
+		<finder name="PROJECT_ID" return-type="Collection">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+	</entity>
+	
+	<entity name="FeedbackRegistration" remote-service="true" local-service="true" table="cf_project_feedback_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="PROJECT_FEEDBACK_ID" primary="true" type="long" />
+		<column name="PROJECT_ID" type="long" />
+		<column name="FEEDBACK" type="String" />
+		<column name="DONOR_USER_ID" type="long" />
+		<column name="FEEDBACK_DATE" type="Date" />
+		<column name="STATUS" type="int" />
+
+		<!-- Finder methods -->
+
+		<finder name="PROJECT_FEEDBACK_ID" return-type="FeedbackRegistration">
+			<finder-column name="PROJECT_FEEDBACK_ID" />
+		</finder>
+		<finder name="PROJECT_ID" return-type="Collection">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+	</entity>
+	
+	<entity name="UpdateRequesterRegistration" remote-service="true" local-service="true" table="cf_update_requester_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="PROJECT_UPDATE_REQUEST_ID" primary="true" type="long" />
+		<column name="PROJECT_ID" type="long" />
+		<column name="UPDATE_REQUESTER_USER_ID" type="long" />
+		<column name="UPDATE_REQUEST_DATE" type="Date" />
+		<column name="STATUS" type="int" />
+
+		<!-- Finder methods -->
+
+		<finder name="PROJECT_UPDATE_REQUEST_ID" return-type="UpdateRequesterRegistration">
+			<finder-column name="PROJECT_UPDATE_REQUEST_ID" />
+		</finder>
+		<finder name="PROJECT_ID" return-type="Collection">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+	</entity>
+	
+	<entity name="QuestionRegistration" remote-service="true" local-service="true" table="cf_project_question_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="PROJECT_QUESTION_ID" primary="true" type="long" />
+		<column name="PROJECT_ID" type="long" />
+		<column name="QUESTION" type="String" />
+		<column name="QUESTION_REQUESTER_USER_ID" type="long" />
+		<column name="QUESTION_DATE" type="Date" />
+		<column name="STATUS" type="int" />
+
+		<!-- Finder methods -->
+
+		<finder name="PROJECT_QUESTION_ID" return-type="UpdateRequesterRegistration">
+			<finder-column name="PROJECT_QUESTION_ID" />
+		</finder>
+		<finder name="PROJECT_ID" return-type="Collection">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+	</entity>
+	
+	<entity name="ProjectUpdateRegistration" remote-service="true" local-service="true" table="cf_project_update_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="PROJECT_UPDATE_ID" primary="true" type="long" />
+		<column name="PROJECT_ID" type="long" />
+		<column name="UPDATE_DETAILS" type="String" />
+		<column name="UPDATE_DATE" type="Date" />
+		<column name="STATUS" type="int" />
+
+		<!-- Finder methods -->
+
+		<finder name="PROJECT_UPDATE_ID" return-type="ProjectUpdateRegistration">
+			<finder-column name="PROJECT_UPDATE_ID" />
+		</finder>
+		<finder name="PROJECT_ID" return-type="Collection">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+	</entity>
+	
+	<entity name="ProjectAcknowledgementRegistration" remote-service="true" local-service="true" table="cf_acknowledgement_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="ACKNOWLEDGMENT_ID" primary="true" type="long" />
+		<column name="PROJECT_ID" type="long" />
+		<column name="DETAILS" type="String" />
+		<column name="DOCUMENT_NAME" type="String" />
+		<column name="DOCUMENT_TYPE" type="String" />
+		<column name="DOCUMENT" type="Blob" />
+		<column name="VIDEO_TYPE" type="String" />
+		<column name="VIDEO" type="Blob" />
+		<column name="DATE" type="Date" />
+
+		<!-- Finder methods -->
+
+		<finder name="PROJECT_ID" return-type="ProjectAcknowledgementRegistration">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+	</entity>
+	
+	
+											<!-- BENIFICIARY ACCOUNT DETAILS -->
+											
+	<entity name="FundAccountRegistration" remote-service="true" local-service="true" table="cf_project_account_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="ACCOUNT_ID" primary="true" type="long" />
+		<column name="PROJECT_ID" type="long" />
+		<column name="ACCOUNT_NO" type="long" />
+		<column name="ACCOUNT_HOLDER_NAME" type="String" />
+		<column name="IFSC_CODE" type="String" />
+		<column name="UPI_NO" type="String" />
+
+		<!-- Finder methods -->
+
+		<finder name="ACCOUNT_ID" return-type="FundAccountRegistration">
+			<finder-column name="ACCOUNT_ID" />
+		</finder>
+		<finder name="PROJECT_ID" return-type="Collection">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+	</entity>
+	
+												<!-- USER FOLLOW DETAILS -->
+											
+	<entity name="UserFollowRegistration" remote-service="true" local-service="true" table="cf_user_follow_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="USER_FOLLOW_ID" primary="true" type="long" />
+		<column name="USER_ID" type="long" />
+		<column name="FOLLOWER_USER_ID" type="long" />
+		<column name="STATUS" type="int" />
+
+		<!-- Finder methods -->
+
+		<finder name="USER_FOLLOW_ID" return-type="UserFollowRegistration">
+			<finder-column name="USER_FOLLOW_ID" />
+		</finder>
+		<finder name="USER_ID" return-type="Collection">
+			<finder-column name="USER_ID" />
+		</finder>
+		<finder name="FOLLOWER_USER_ID" return-type="Collection">
+			<finder-column name="FOLLOWER_USER_ID" />
+		</finder>
+	</entity>
+	
+	
+												<!-- CAMPAIGN FOLLOW DETAILS -->
+											
+	<entity name="ProjectFollowerRegistration" remote-service="true" local-service="true" table="cf_project_follower_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="PROJECT_FOLLOWER_ID" primary="true" type="long" />
+		<column name="USER_ID" type="long" />
+		<column name="PROJECT_ID" type="long" />
+		<column name="STATUS" type="int" />
+
+		<!-- Finder methods -->
+
+		<finder name="PROJECT_FOLLOWER_ID" return-type="ProjectFollowerRegistration">
+			<finder-column name="PROJECT_FOLLOWER_ID" />
+		</finder>
+		<finder name="USER_ID" return-type="Collection">
+			<finder-column name="USER_ID" />
+		</finder>
+		<finder name="PROJECT_ID" return-type="Collection">
+			<finder-column name="PROJECT_ID" />
+		</finder>
+		<finder name="PROJECT_USER_ID" return-type="ProjectFollowerRegistration">
+			<finder-column name="PROJECT_ID" />
+			<finder-column name="USER_ID" />
+		</finder>
+	</entity>
+	
+												<!-- NEWS LATTERS -->
+												
+	<entity name="NewsLetterRegistration" remote-service="true" local-service="true" table="cf_news_letter_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="NEWS_LETTER_ID" primary="true" type="long" />
+		<column name="TITLE" type="String" />
+		<column name="DETAILS" type="String" />
+		<column name="DOCUMENT_TYPE" type="String" />
+		<column name="DOCUMENT" type="Blob" />
+		<column name="DATE" type="Date" />
+
+		<!-- Finder methods -->
+
+		<finder name="NEWS_LETTER_ID" return-type="NewsLetterRegistration">
+			<finder-column name="NEWS_LETTER_ID" />
+		</finder>
+	</entity>
+	
+		<entity name="SubscriptionRegistration" remote-service="true" local-service="true" table="cf_subscription_details" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="SUSCRIBER_ID" primary="true" type="long" />
+		<column name="EMAIL" type="String" />
+		<column name="STATUS" type="int" />
+
+		<!-- Finder methods -->
+
+		<finder name="STATUS" return-type="Collection">
+			<finder-column name="STATUS" />
+		</finder>
+		<finder name="EMAIL" return-type="SubscriptionRegistration">
+			<finder-column name="EMAIL" />
+		</finder>
+	</entity>
+	
+</service-builder>

@@ -1,0 +1,4 @@
+Bundle-Name: crowd-funding-user-registration
+Bundle-SymbolicName: com.crowd.funding.user.registration.controller
+Bundle-Version: 1.0.0
+Export-Package: com.crowd.funding.user.registration.controller.constants

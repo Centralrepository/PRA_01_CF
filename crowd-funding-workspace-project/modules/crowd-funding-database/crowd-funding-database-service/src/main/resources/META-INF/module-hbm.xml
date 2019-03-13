@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="com.crowd.funding.database.model.BenificiaryRegistration" />
+	<import class="com.crowd.funding.database.model.CommentRegistration" />
+	<import class="com.crowd.funding.database.model.DocumentRegistration" />
+	<import class="com.crowd.funding.database.model.DonorRegistration" />
+	<import class="com.crowd.funding.database.model.FeedbackRegistration" />
+	<import class="com.crowd.funding.database.model.FundAccountRegistration" />
+	<import class="com.crowd.funding.database.model.FundRegistration" />
+	<import class="com.crowd.funding.database.model.FundReleaseRegistration" />
+	<import class="com.crowd.funding.database.model.ImageRegistration" />
+	<import class="com.crowd.funding.database.model.NewsLetterRegistration" />
+	<import class="com.crowd.funding.database.model.ProjectAcknowledgementRegistration" />
+	<import class="com.crowd.funding.database.model.ProjectFollowerRegistration" />
+	<import class="com.crowd.funding.database.model.ProjectPriorityRegistration" />
+	<import class="com.crowd.funding.database.model.ProjectRegistration" />
+	<import class="com.crowd.funding.database.model.ProjectUpdateRegistration" />
+	<import class="com.crowd.funding.database.model.QuestionRegistration" />
+	<import class="com.crowd.funding.database.model.SubscriptionRegistration" />
+	<import class="com.crowd.funding.database.model.UpdateRequesterRegistration" />
+	<import class="com.crowd.funding.database.model.UserFollowRegistration" />
+	<import class="com.crowd.funding.database.model.UserOTPRegistration" />
+	<import class="com.crowd.funding.database.model.UserRegistration" />
+	<class name="com.crowd.funding.database.model.impl.BenificiaryRegistrationImpl" table="cf_project_benificiary_details">
+		<id name="BENIFICIARY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="BENIFICIARY_CATEGORY" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="BENIFICIARY_TYPE" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="BENIFICIARY_NAME" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="AGE" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="GENDER" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="LOCATION" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="RELATIONSHIP" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="RELATIONSHIP_DETAILS" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="MEMBERS_NO" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="CAUSE_DETAILS" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ADDRESS_LINE1" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ADDRESS_LINE2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="CITY" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="STATE" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PINCODE" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="COUNTRY" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="CONTACT_NAME" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="CONTACT_NO" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="ALTERNATE_CONTACT_NO" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="EMERGENCY_CONTACT_DETAILS" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="IMAGE_TYPE" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.crowd.funding.database.model.BenificiaryRegistrationIMAGEBlobModel" constrained="true" name="IMAGEBlobModel" outer-join="false" />
+	</class>
+	<class lazy="true" name="com.crowd.funding.database.model.BenificiaryRegistrationIMAGEBlobModel" table="cf_project_benificiary_details">
+		<id column="BENIFICIARY_ID" name="BENIFICIARY_ID">
+			<generator class="foreign">
+				<param name="property">com.crowd.funding.database.model.impl.BenificiaryRegistrationImpl</param>
+			</generator>
+		</id>
+		<property column="IMAGE" name="IMAGEBlob" type="blob" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.CommentRegistrationImpl" table="cf_project_comment_details">
+		<id name="PROJECT_COMMENT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PROJECT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="COMMENT" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ANSWER" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="DONOR_USER_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="COMMENT_DATE" type="org.hibernate.type.TimestampType" />
+		<property name="STATUS" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.DocumentRegistrationImpl" table="cf_project_document_details">
+		<id name="PROJECT_DOCUMENT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PROJECT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="DOCUMENT_NAME" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="DOCUMENT_TYPE" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.crowd.funding.database.model.DocumentRegistrationDOCUMENTBlobModel" constrained="true" name="DOCUMENTBlobModel" outer-join="false" />
+	</class>
+	<class lazy="true" name="com.crowd.funding.database.model.DocumentRegistrationDOCUMENTBlobModel" table="cf_project_document_details">
+		<id column="PROJECT_DOCUMENT_ID" name="PROJECT_DOCUMENT_ID">
+			<generator class="foreign">
+				<param name="property">com.crowd.funding.database.model.impl.DocumentRegistrationImpl</param>
+			</generator>
+		</id>
+		<property column="DOCUMENT" name="DOCUMENTBlob" type="blob" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.DonorRegistrationImpl" table="cf_donor_details">
+		<id name="DONOR_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="NAME" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ADDRESS" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="CITY" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="STATE" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="COUNTRY" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PINCODE" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="MAIL_ADDRESS" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="MOBILE_NO" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="OTP" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="MAIL_VERIFICATION" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="SMS_VERIFICATION" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="CREATION_DATE_TIME" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.FeedbackRegistrationImpl" table="cf_project_feedback_details">
+		<id name="PROJECT_FEEDBACK_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PROJECT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="FEEDBACK" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="DONOR_USER_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="FEEDBACK_DATE" type="org.hibernate.type.TimestampType" />
+		<property name="STATUS" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.FundAccountRegistrationImpl" table="cf_project_account_details">
+		<id name="ACCOUNT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PROJECT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="ACCOUNT_NO" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="ACCOUNT_HOLDER_NAME" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="IFSC_CODE" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="UPI_NO" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.FundRegistrationImpl" table="cf_project_fund_details">
+		<id name="PROJECT_FUND_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="DONOR_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="PROJECT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="CURRENCY" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="DONATED_AMOUNT" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property name="DONOR_USER_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="DONOR_STATUS" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="COMMENT" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="DONATED_DATE" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.FundReleaseRegistrationImpl" table="cf_fund_release_details">
+		<id name="FUND_RELEASE_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PROJECT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="CURRENCY" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="AMOUNT" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property name="RELEASE_DATE" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.ImageRegistrationImpl" table="cf_project_image_details">
+		<id name="PROJECT_IMAGE_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PROJECT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="IMAGE_NAME" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="IMAGE_TYPE" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.crowd.funding.database.model.ImageRegistrationIMAGEBlobModel" constrained="true" name="IMAGEBlobModel" outer-join="false" />
+	</class>
+	<class lazy="true" name="com.crowd.funding.database.model.ImageRegistrationIMAGEBlobModel" table="cf_project_image_details">
+		<id column="PROJECT_IMAGE_ID" name="PROJECT_IMAGE_ID">
+			<generator class="foreign">
+				<param name="property">com.crowd.funding.database.model.impl.ImageRegistrationImpl</param>
+			</generator>
+		</id>
+		<property column="IMAGE" name="IMAGEBlob" type="blob" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.NewsLetterRegistrationImpl" table="cf_news_letter_details">
+		<id name="NEWS_LETTER_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="TITLE" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="DETAILS" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="DOCUMENT_TYPE" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.crowd.funding.database.model.NewsLetterRegistrationDOCUMENTBlobModel" constrained="true" name="DOCUMENTBlobModel" outer-join="false" />
+		<property name="DATE" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class lazy="true" name="com.crowd.funding.database.model.NewsLetterRegistrationDOCUMENTBlobModel" table="cf_news_letter_details">
+		<id column="NEWS_LETTER_ID" name="NEWS_LETTER_ID">
+			<generator class="foreign">
+				<param name="property">com.crowd.funding.database.model.impl.NewsLetterRegistrationImpl</param>
+			</generator>
+		</id>
+		<property column="DOCUMENT" name="DOCUMENTBlob" type="blob" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.ProjectAcknowledgementRegistrationImpl" table="cf_acknowledgement_details">
+		<id name="ACKNOWLEDGMENT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PROJECT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="DETAILS" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="DOCUMENT_NAME" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="DOCUMENT_TYPE" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.crowd.funding.database.model.ProjectAcknowledgementRegistrationDOCUMENTBlobModel" constrained="true" name="DOCUMENTBlobModel" outer-join="false" />
+		<property name="VIDEO_TYPE" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.crowd.funding.database.model.ProjectAcknowledgementRegistrationVIDEOBlobModel" constrained="true" name="VIDEOBlobModel" outer-join="false" />
+		<property name="DATE" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class lazy="true" name="com.crowd.funding.database.model.ProjectAcknowledgementRegistrationDOCUMENTBlobModel" table="cf_acknowledgement_details">
+		<id column="ACKNOWLEDGMENT_ID" name="ACKNOWLEDGMENT_ID">
+			<generator class="foreign">
+				<param name="property">com.crowd.funding.database.model.impl.ProjectAcknowledgementRegistrationImpl</param>
+			</generator>
+		</id>
+		<property column="DOCUMENT" name="DOCUMENTBlob" type="blob" />
+	</class>
+	<class lazy="true" name="com.crowd.funding.database.model.ProjectAcknowledgementRegistrationVIDEOBlobModel" table="cf_acknowledgement_details">
+		<id column="ACKNOWLEDGMENT_ID" name="ACKNOWLEDGMENT_ID">
+			<generator class="foreign">
+				<param name="property">com.crowd.funding.database.model.impl.ProjectAcknowledgementRegistrationImpl</param>
+			</generator>
+		</id>
+		<property column="VIDEO" name="VIDEOBlob" type="blob" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.ProjectFollowerRegistrationImpl" table="cf_project_follower_details">
+		<id name="PROJECT_FOLLOWER_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="USER_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="PROJECT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="STATUS" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.ProjectPriorityRegistrationImpl" table="cf_project_priority_details">
+		<id name="PROJECT_PRIORITY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PROJECT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="PRIORITY" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="PRIORITY_SEQUANCE" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.ProjectRegistrationImpl" table="cf_project_master">
+		<id name="PROJECT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="USER_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="BENIFICIARY_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="TITLE" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="DESCRIPTION" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="REQUIRED_FUND_AMOUNT" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property name="CREATION_DATE" type="org.hibernate.type.TimestampType" />
+		<property name="END_DATE" type="org.hibernate.type.TimestampType" />
+		<property name="STATUS" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.ProjectUpdateRegistrationImpl" table="cf_project_update_details">
+		<id name="PROJECT_UPDATE_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PROJECT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="UPDATE_DETAILS" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="UPDATE_DATE" type="org.hibernate.type.TimestampType" />
+		<property name="STATUS" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.QuestionRegistrationImpl" table="cf_project_question_details">
+		<id name="PROJECT_QUESTION_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PROJECT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="QUESTION" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="QUESTION_REQUESTER_USER_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="QUESTION_DATE" type="org.hibernate.type.TimestampType" />
+		<property name="STATUS" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.SubscriptionRegistrationImpl" table="cf_subscription_details">
+		<id name="SUSCRIBER_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="EMAIL" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="STATUS" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.UpdateRequesterRegistrationImpl" table="cf_update_requester_details">
+		<id name="PROJECT_UPDATE_REQUEST_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PROJECT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="UPDATE_REQUESTER_USER_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="UPDATE_REQUEST_DATE" type="org.hibernate.type.TimestampType" />
+		<property name="STATUS" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.UserFollowRegistrationImpl" table="cf_user_follow_details">
+		<id name="USER_FOLLOW_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="USER_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="FOLLOWER_USER_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="STATUS" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.UserOTPRegistrationImpl" table="cf_user_otp_details">
+		<id name="USER_OTP_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="MOBILE_NO" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="MAIL_ADDRESS" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="OTP" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="MAIL_VERIFICATION" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="SMS_VERIFICATION" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="CREATION_DATE_TIME" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.crowd.funding.database.model.impl.UserRegistrationImpl" table="cf_user_master">
+		<id name="USER_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="USER_OTP_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="FULL_NAME" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="PASSWORD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="GENDER" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="CREATION_DATE" type="org.hibernate.type.TimestampType" />
+	</class>
+</hibernate-mapping>

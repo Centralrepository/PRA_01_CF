@@ -1,0 +1,4 @@
+Bundle-Name: crowd-funding-benificiary-campaign-details
+Bundle-SymbolicName: com.crowd.funding.module.controller
+Bundle-Version: 1.0.0
+Export-Package: com.crowd.funding.module.controller.constants

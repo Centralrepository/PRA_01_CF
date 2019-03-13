@@ -1,0 +1,4 @@
+Bundle-Name: Whatsademo
+Bundle-SymbolicName: com.demo
+Bundle-Version: 1.0.0
+Export-Package: com.demo.constants

@@ -1,0 +1,4 @@
+Bundle-Name: whatsapconnection
+Bundle-SymbolicName: whatsap.com
+Bundle-Version: 1.0.0
+Export-Package: whatsap.com.constants

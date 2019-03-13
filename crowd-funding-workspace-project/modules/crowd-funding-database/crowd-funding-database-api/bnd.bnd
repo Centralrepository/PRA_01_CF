@@ -1,0 +1,10 @@
+Bundle-Name: crowd-funding-database-api
+Bundle-SymbolicName: com.crowd.funding.database.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.crowd.funding.database.exception,\
+	com.crowd.funding.database.model,\
+	com.crowd.funding.database.service,\
+	com.crowd.funding.database.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../crowd-funding-database-service/service.xml

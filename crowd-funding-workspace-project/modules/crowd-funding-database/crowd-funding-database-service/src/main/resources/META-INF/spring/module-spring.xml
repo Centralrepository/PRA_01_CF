@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	<bean class="com.crowd.funding.database.service.impl.BenificiaryRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.BenificiaryRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.BenificiaryRegistrationServiceImpl" id="com.crowd.funding.database.service.BenificiaryRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.BenificiaryRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.BenificiaryRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.CommentRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.CommentRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.CommentRegistrationServiceImpl" id="com.crowd.funding.database.service.CommentRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.CommentRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.CommentRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.DocumentRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.DocumentRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.DocumentRegistrationServiceImpl" id="com.crowd.funding.database.service.DocumentRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.DocumentRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.DocumentRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.DonorRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.DonorRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.DonorRegistrationServiceImpl" id="com.crowd.funding.database.service.DonorRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.DonorRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.DonorRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.FeedbackRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.FeedbackRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.FeedbackRegistrationServiceImpl" id="com.crowd.funding.database.service.FeedbackRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.FeedbackRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.FeedbackRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.FundAccountRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.FundAccountRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.FundAccountRegistrationServiceImpl" id="com.crowd.funding.database.service.FundAccountRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.FundAccountRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.FundAccountRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.FundRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.FundRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.FundRegistrationServiceImpl" id="com.crowd.funding.database.service.FundRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.FundRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.FundRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.FundReleaseRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.FundReleaseRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.FundReleaseRegistrationServiceImpl" id="com.crowd.funding.database.service.FundReleaseRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.FundReleaseRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.FundReleaseRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.ImageRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.ImageRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.ImageRegistrationServiceImpl" id="com.crowd.funding.database.service.ImageRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.ImageRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.ImageRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.NewsLetterRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.NewsLetterRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.NewsLetterRegistrationServiceImpl" id="com.crowd.funding.database.service.NewsLetterRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.NewsLetterRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.NewsLetterRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.ProjectAcknowledgementRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.ProjectAcknowledgementRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.ProjectAcknowledgementRegistrationServiceImpl" id="com.crowd.funding.database.service.ProjectAcknowledgementRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.ProjectAcknowledgementRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.ProjectAcknowledgementRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.ProjectFollowerRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.ProjectFollowerRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.ProjectFollowerRegistrationServiceImpl" id="com.crowd.funding.database.service.ProjectFollowerRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.ProjectFollowerRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.ProjectFollowerRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.ProjectPriorityRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.ProjectPriorityRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.ProjectPriorityRegistrationServiceImpl" id="com.crowd.funding.database.service.ProjectPriorityRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.ProjectPriorityRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.ProjectPriorityRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.ProjectRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.ProjectRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.ProjectRegistrationServiceImpl" id="com.crowd.funding.database.service.ProjectRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.ProjectRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.ProjectRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.ProjectUpdateRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.ProjectUpdateRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.ProjectUpdateRegistrationServiceImpl" id="com.crowd.funding.database.service.ProjectUpdateRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.ProjectUpdateRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.ProjectUpdateRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.QuestionRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.QuestionRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.QuestionRegistrationServiceImpl" id="com.crowd.funding.database.service.QuestionRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.QuestionRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.QuestionRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.SubscriptionRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.SubscriptionRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.SubscriptionRegistrationServiceImpl" id="com.crowd.funding.database.service.SubscriptionRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.SubscriptionRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.SubscriptionRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.UpdateRequesterRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.UpdateRequesterRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.UpdateRequesterRegistrationServiceImpl" id="com.crowd.funding.database.service.UpdateRequesterRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.UpdateRequesterRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.UpdateRequesterRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.UserFollowRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.UserFollowRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.UserFollowRegistrationServiceImpl" id="com.crowd.funding.database.service.UserFollowRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.UserFollowRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.UserFollowRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.UserOTPRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.UserOTPRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.UserOTPRegistrationServiceImpl" id="com.crowd.funding.database.service.UserOTPRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.UserOTPRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.UserOTPRegistrationPersistence" parent="basePersistence" />
+	<bean class="com.crowd.funding.database.service.impl.UserRegistrationLocalServiceImpl" id="com.crowd.funding.database.service.UserRegistrationLocalService" />
+	<bean class="com.crowd.funding.database.service.impl.UserRegistrationServiceImpl" id="com.crowd.funding.database.service.UserRegistrationService" />
+	<bean class="com.crowd.funding.database.service.persistence.impl.UserRegistrationPersistenceImpl" id="com.crowd.funding.database.service.persistence.UserRegistrationPersistence" parent="basePersistence" />
+</beans>

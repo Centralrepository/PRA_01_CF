@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.crowd.funding.database.model.BenificiaryRegistration">
+		<field name="uuid" type="String" />
+		<field name="BENIFICIARY_ID" type="long" />
+		<field name="BENIFICIARY_CATEGORY" type="String" />
+		<field name="BENIFICIARY_TYPE" type="String" />
+		<field name="BENIFICIARY_NAME" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="AGE" type="int" />
+		<field name="GENDER" type="String" />
+		<field name="LOCATION" type="String" />
+		<field name="RELATIONSHIP" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="RELATIONSHIP_DETAILS" type="String" />
+		<field name="MEMBERS_NO" type="int" />
+		<field name="CAUSE_DETAILS" type="String" />
+		<field name="ADDRESS_LINE1" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="ADDRESS_LINE2" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="CITY" type="String" />
+		<field name="STATE" type="String" />
+		<field name="PINCODE" type="int" />
+		<field name="COUNTRY" type="String" />
+		<field name="CONTACT_NAME" type="String" />
+		<field name="CONTACT_NO" type="long" />
+		<field name="ALTERNATE_CONTACT_NO" type="long" />
+		<field name="EMERGENCY_CONTACT_DETAILS" type="String">
+			<hint name="max-length">8000</hint>
+		</field>
+		<field name="IMAGE_TYPE" type="String" />
+		<field name="IMAGE" type="Blob" />
+	</model>
+	<model name="com.crowd.funding.database.model.CommentRegistration">
+		<field name="uuid" type="String" />
+		<field name="PROJECT_COMMENT_ID" type="long" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="COMMENT" type="String">
+			<hint name="max-length">10000</hint>
+		</field>
+		<field name="ANSWER" type="String">
+			<hint name="max-length">10000</hint>
+		</field>
+		<field name="DONOR_USER_ID" type="long" />
+		<field name="COMMENT_DATE" type="Date" />
+		<field name="STATUS" type="int" />
+	</model>
+	<model name="com.crowd.funding.database.model.DocumentRegistration">
+		<field name="uuid" type="String" />
+		<field name="PROJECT_DOCUMENT_ID" type="long" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="DOCUMENT_NAME" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="DOCUMENT_TYPE" type="String" />
+		<field name="DOCUMENT" type="Blob" />
+	</model>
+	<model name="com.crowd.funding.database.model.DonorRegistration">
+		<field name="uuid" type="String" />
+		<field name="DONOR_ID" type="long" />
+		<field name="NAME" type="String" />
+		<field name="ADDRESS" type="String" />
+		<field name="CITY" type="String" />
+		<field name="STATE" type="String" />
+		<field name="COUNTRY" type="String" />
+		<field name="PINCODE" type="String" />
+		<field name="MAIL_ADDRESS" type="String" />
+		<field name="MOBILE_NO" type="long" />
+		<field name="OTP" type="int" />
+		<field name="MAIL_VERIFICATION" type="int" />
+		<field name="SMS_VERIFICATION" type="int" />
+		<field name="CREATION_DATE_TIME" type="Date" />
+	</model>
+	<model name="com.crowd.funding.database.model.FeedbackRegistration">
+		<field name="uuid" type="String" />
+		<field name="PROJECT_FEEDBACK_ID" type="long" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="FEEDBACK" type="String">
+			<hint name="max-length">5000</hint>
+		</field>
+		<field name="DONOR_USER_ID" type="long" />
+		<field name="FEEDBACK_DATE" type="Date" />
+		<field name="STATUS" type="int" />
+	</model>
+	<model name="com.crowd.funding.database.model.FundAccountRegistration">
+		<field name="uuid" type="String" />
+		<field name="ACCOUNT_ID" type="long" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="ACCOUNT_NO" type="long" />
+		<field name="ACCOUNT_HOLDER_NAME" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="IFSC_CODE" type="String" />
+		<field name="UPI_NO" type="String" />
+	</model>
+	<model name="com.crowd.funding.database.model.FundRegistration">
+		<field name="uuid" type="String" />
+		<field name="PROJECT_FUND_ID" type="long" />
+		<field name="DONOR_ID" type="long" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="CURRENCY" type="String" />
+		<field name="DONATED_AMOUNT" type="float" />
+		<field name="DONOR_USER_ID" type="long" />
+		<field name="DONOR_STATUS" type="int" />
+		<field name="COMMENT" type="String">
+			<hint name="max-length">7000</hint>
+		</field>
+		<field name="DONATED_DATE" type="Date" />
+	</model>
+	<model name="com.crowd.funding.database.model.FundReleaseRegistration">
+		<field name="uuid" type="String" />
+		<field name="FUND_RELEASE_ID" type="long" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="CURRENCY" type="String" />
+		<field name="AMOUNT" type="float" />
+		<field name="RELEASE_DATE" type="Date" />
+	</model>
+	<model name="com.crowd.funding.database.model.ImageRegistration">
+		<field name="uuid" type="String" />
+		<field name="PROJECT_IMAGE_ID" type="long" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="IMAGE_NAME" type="String" />
+		<field name="IMAGE_TYPE" type="String" />
+		<field name="IMAGE" type="Blob" />
+	</model>
+	<model name="com.crowd.funding.database.model.NewsLetterRegistration">
+		<field name="uuid" type="String" />
+		<field name="NEWS_LETTER_ID" type="long" />
+		<field name="TITLE" type="String">
+			<hint name="max-length">5000</hint>
+		</field>
+		<field name="DETAILS" type="String">
+			<hint name="max-length">10000</hint>
+		</field>
+		<field name="DOCUMENT_TYPE" type="String" />
+		<field name="DOCUMENT" type="Blob" />
+		<field name="DATE" type="Date" />
+	</model>
+	<model name="com.crowd.funding.database.model.ProjectAcknowledgementRegistration">
+		<field name="uuid" type="String" />
+		<field name="ACKNOWLEDGMENT_ID" type="long" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="DETAILS" type="String">
+			<hint name="max-length">7000</hint>
+		</field>
+		<field name="DOCUMENT_NAME" type="String" />
+		<field name="DOCUMENT_TYPE" type="String" />
+		<field name="DOCUMENT" type="Blob" />
+		<field name="VIDEO_TYPE" type="String" />
+		<field name="VIDEO" type="Blob" />
+		<field name="DATE" type="Date" />
+	</model>
+	<model name="com.crowd.funding.database.model.ProjectFollowerRegistration">
+		<field name="uuid" type="String" />
+		<field name="PROJECT_FOLLOWER_ID" type="long" />
+		<field name="USER_ID" type="long" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="STATUS" type="int" />
+	</model>
+	<model name="com.crowd.funding.database.model.ProjectPriorityRegistration">
+		<field name="uuid" type="String" />
+		<field name="PROJECT_PRIORITY_ID" type="long" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="PRIORITY" type="int" />
+		<field name="PRIORITY_SEQUANCE" type="int" />
+	</model>
+	<model name="com.crowd.funding.database.model.ProjectRegistration">
+		<field name="uuid" type="String" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="USER_ID" type="long" />
+		<field name="BENIFICIARY_ID" type="long" />
+		<field name="TITLE" type="String">
+			<hint name="max-length">10000</hint>
+		</field>
+		<field name="DESCRIPTION" type="String">
+			<hint name="max-length">50000</hint>
+		</field>
+		<field name="REQUIRED_FUND_AMOUNT" type="float" />
+		<field name="CREATION_DATE" type="Date" />
+		<field name="END_DATE" type="Date" />
+		<field name="STATUS" type="int" />
+	</model>
+	<model name="com.crowd.funding.database.model.ProjectUpdateRegistration">
+		<field name="uuid" type="String" />
+		<field name="PROJECT_UPDATE_ID" type="long" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="UPDATE_DETAILS" type="String">
+			<hint name="max-length">50000</hint>
+		</field>
+		<field name="UPDATE_DATE" type="Date" />
+		<field name="STATUS" type="int" />
+	</model>
+	<model name="com.crowd.funding.database.model.QuestionRegistration">
+		<field name="uuid" type="String" />
+		<field name="PROJECT_QUESTION_ID" type="long" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="QUESTION" type="String">
+			<hint name="max-length">8000</hint>
+		</field>
+		<field name="QUESTION_REQUESTER_USER_ID" type="long" />
+		<field name="QUESTION_DATE" type="Date" />
+		<field name="STATUS" type="int" />
+	</model>
+	<model name="com.crowd.funding.database.model.SubscriptionRegistration">
+		<field name="uuid" type="String" />
+		<field name="SUSCRIBER_ID" type="long" />
+		<field name="EMAIL" type="String" />
+		<field name="STATUS" type="int" />
+	</model>
+	<model name="com.crowd.funding.database.model.UpdateRequesterRegistration">
+		<field name="uuid" type="String" />
+		<field name="PROJECT_UPDATE_REQUEST_ID" type="long" />
+		<field name="PROJECT_ID" type="long" />
+		<field name="UPDATE_REQUESTER_USER_ID" type="long" />
+		<field name="UPDATE_REQUEST_DATE" type="Date" />
+		<field name="STATUS" type="int" />
+	</model>
+	<model name="com.crowd.funding.database.model.UserFollowRegistration">
+		<field name="uuid" type="String" />
+		<field name="USER_FOLLOW_ID" type="long" />
+		<field name="USER_ID" type="long" />
+		<field name="FOLLOWER_USER_ID" type="long" />
+		<field name="STATUS" type="int" />
+	</model>
+	<model name="com.crowd.funding.database.model.UserOTPRegistration">
+		<field name="uuid" type="String" />
+		<field name="USER_OTP_ID" type="long" />
+		<field name="MOBILE_NO" type="long" />
+		<field name="MAIL_ADDRESS" type="String" />
+		<field name="OTP" type="int" />
+		<field name="MAIL_VERIFICATION" type="int" />
+		<field name="SMS_VERIFICATION" type="int" />
+		<field name="CREATION_DATE_TIME" type="Date" />
+	</model>
+	<model name="com.crowd.funding.database.model.UserRegistration">
+		<field name="uuid" type="String" />
+		<field name="USER_ID" type="long" />
+		<field name="USER_OTP_ID" type="long" />
+		<field name="FULL_NAME" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="PASSWORD" type="String" />
+		<field name="GENDER" type="String" />
+		<field name="CREATION_DATE" type="Date" />
+	</model>
+</model-hints>
